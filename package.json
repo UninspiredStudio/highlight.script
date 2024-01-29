@@ -1,0 +1,28 @@
+{
+  "name": "highlights.script",
+  "module": "src/index.ts",
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/bun": "latest",
+    "@types/dompurify": "^3.0.5",
+    "@types/qs": "^6.9.11",
+    "rollup": "^4.9.6",
+    "rollup-plugin-scss": "^4.0.0",
+    "sass": "^1.70.0",
+    "tslib": "^2.6.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "dev": "rollup -c rollup.config.js --watch"
+  },
+  "type": "module",
+  "dependencies": {
+    "dompurify": "^3.0.8",
+    "nanoid": "^5.0.4",
+    "qs": "^6.11.2"
+  }
+}

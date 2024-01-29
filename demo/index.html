@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>highlight.script demo</title>
+    <link rel="stylesheet" href="/highlights.css">
+    <script preload src="/highlight.min.js"></script>
+    <script defer>
+      window.highlights = new window.Highlights({
+        apiUrl: "http://localhost:3005",
+        apiKey: "ASDF1235",
+      })
+      window.highlights.enable()
+    </script>
+    <script>
+      let highlightsEnabled = true;
+      function onToggleHighlightsClick(self) {
+        if (!window.highlights) return console.error('Highlights not initialized');
+        if (highlightsEnabled) {
+          window.highlights.disable()
+          highlightsEnabled = false
+        } else {
+          window.highlights.enable()
+          highlightsEnabled = true
+        }
+
+        self.innerText = highlightsEnabled ? 'Disable Highlights' : 'Enable Highlights'
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <button style="display: inline-block; position: fixed; bottom: 10px; right: 10px;" onclick="onToggleHighlightsClick(this)">
+      Disable Highlights
+    </button>
+    <script type="module" src="/src/main.tsx">
+    </script>
+  </body>
+</html>
